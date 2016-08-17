@@ -1,0 +1,33 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Космический блог!</title>  
+    
+     {# Это комментарий в шаблоне. #}
+    
+    {% comment %}
+     Можно также писать многострочные комментарии.
+     
+     Обратите внимание, поправил ситуацию с подгрузкой статики.
+     Дело было в неправильной директории. 
+     Для статики правильная директория:  myapp/static/myapp   
+     Внутри нее уже можно размещать поддиректории img, js, css.
+     Нужно только учесть соответствующие пути в ссылках на статику
+    {% endcomment %} 
+    
+ {% block stylesheet %}    
+    <link rel="stylesheet" type="text/css" href="{% static 'spaceblog/css/style.css' %}" media="screen">
+ {% endblock %}    
+    
+</head>
+
+<body>
+    <h1> Космосмические записи</h1>
+    {% block spacecontent %} 
+    {% endblock %}    
+</body>
+
+  
+

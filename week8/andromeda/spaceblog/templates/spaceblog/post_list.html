@@ -1,0 +1,16 @@
+{% extends "spaceblog/base.html" %}
+
+{% block spacecontent %} 
+    <h2> Все записи </h2>
+    
+    {% for post in post_list %}
+    <p>
+        <h3>{{ post.title }}</h3>
+        {{ post.text | truncatewords:30 }}
+        {{ post.create_date }}
+        <a href={% url 'post_detail' post.id %}> Иди сюда... </a>
+    </p>
+    {% endfor%}
+
+{% endblock %} 
+
